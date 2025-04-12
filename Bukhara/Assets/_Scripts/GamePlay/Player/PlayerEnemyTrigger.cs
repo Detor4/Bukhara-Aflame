@@ -10,8 +10,8 @@ namespace _Scripts.GamePlay.Player
             Enemy enemyScript = other.GetComponent<Enemy>();
             if (enemyScript != null)
             {
-                // Obyekti yo'q qilish
-                Destroy(other.gameObject);
+                Debug.Log("ENemy");
+                //Destroy(gameObject);
             }
         }
     }

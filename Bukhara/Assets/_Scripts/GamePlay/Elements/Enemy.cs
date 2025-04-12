@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 {
     private Transform player;
     private NavMeshAgent agent;
+    private Animator animator;
     private Vector3 startPosition;
     private Vector3 lastSeenPosition;
     private bool playerVisible = false;
@@ -12,19 +13,19 @@ public class Enemy : MonoBehaviour
 
     public float visionAngle = 40f;
     public float visionRange = 10f;
-    public float rotationSpeed = 120f; // gradus/sek
-    public Transform[] points; // Nuqtalar arraysi
+    public float rotationSpeed = 120f;
+    public Transform[] points;
 
     private float rotateAmount = 0f;
-    private int currentPointIndex = 0; // Joriy nuqta indeksi
+    private int currentPointIndex = 0;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         startPosition = transform.position;
 
-        // Agar points arrayi bo'sh bo'lmasa, harakatni boshlaymiz
         if (points.Length > 0)
         {
             agent.SetDestination(points[currentPointIndex].position);
@@ -41,12 +42,10 @@ public class Enemy : MonoBehaviour
 
         Vector3 directionToPlayer = player.position - transform.position;
         float distanceToPlayer = directionToPlayer.magnitude;
-
         float angle = Vector3.Angle(transform.forward, directionToPlayer.normalized);
 
         if (distanceToPlayer <= visionRange && angle < visionAngle / 2f && CanSeePlayer())
         {
-            // Playerni ko'rdik, uning orqasidan ketamiz
             playerVisible = true;
             lastSeenPosition = player.position;
             searching = false;
@@ -54,7 +53,6 @@ public class Enemy : MonoBehaviour
         }
         else if (playerVisible)
         {
-            // Playerni yo'qotdik, qidiruvni boshlaymiz
             playerVisible = false;
             searching = true;
             agent.SetDestination(lastSeenPosition);
@@ -64,12 +62,11 @@ public class Enemy : MonoBehaviour
             float distance = Vector3.Distance(transform.position, lastSeenPosition);
             if (distance < 0.5f)
             {
-                RotateInPlace(); // 360 gradus aylanish
+                RotateInPlace();
             }
         }
         else
         {
-            // Player yo'q, qidiruv ham tugagan, patrulni davom ettiramiz
             float distanceToCurrentPoint = Vector3.Distance(transform.position, points[currentPointIndex].position);
             if (distanceToCurrentPoint < 1f)
             {
@@ -77,6 +74,10 @@ public class Enemy : MonoBehaviour
                 agent.SetDestination(points[currentPointIndex].position);
             }
         }
+
+        // Animatsiya: yurayotganida Walk true, to‘xtaganida yoki aylanayotganida false
+        bool isMoving = agent.velocity.magnitude > 0.1f && !searching;
+        animator.SetBool("Walk", isMoving);
     }
 
     bool CanSeePlayer()
@@ -97,12 +98,12 @@ public class Enemy : MonoBehaviour
         transform.Rotate(Vector3.up, step);
         rotateAmount += step;
 
+        animator.SetBool("Walk", false); // Aylanayotganida yurmasin
+
         if (rotateAmount >= 360f)
         {
             rotateAmount = 0f;
             searching = false;
-
-            // Patrulni davom ettiramiz
             currentPointIndex = (currentPointIndex + 1) % points.Length;
             agent.SetDestination(points[currentPointIndex].position);
         }

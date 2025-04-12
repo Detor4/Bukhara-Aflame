@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        Time.timeScale = 0.1f;
+            //Time.timeScale = 0.1f;
     }
 
     void Update()
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sneakSpeed : walkSpeed;
         moveDirection = input * currentSpeed;
 
-        controller.SimpleMove(moveDirection);
+        controller.SimpleMove(moveDirection) ;
         RotateTowardsMovement(input);
     }
 
