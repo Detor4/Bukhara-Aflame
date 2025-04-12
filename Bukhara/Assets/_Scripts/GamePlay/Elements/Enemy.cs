@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public float visionAngle = 40f;
     public float visionRange = 10f;
     public float rotationSpeed = 120f;
+    public DangerSms dangerSms; 
     public Transform[] points;
 
     private float rotateAmount = 0f;
@@ -50,6 +51,7 @@ public class Enemy : MonoBehaviour
             lastSeenPosition = player.position;
             searching = false;
             agent.SetDestination(player.position);
+            dangerSms.StartWarning();
         }
         else if (playerVisible)
         {
