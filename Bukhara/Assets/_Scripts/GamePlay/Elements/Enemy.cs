@@ -6,7 +6,8 @@ public class Enemy : MonoBehaviour
     private Transform player;
     private NavMeshAgent agent;
     private Animator animator;
-    private Vector3 startPosition;
+    [SerializeField] DangerSms dangerSms; // 👈 DangerSms skriptiga murojaat
+
     private Vector3 lastSeenPosition;
     private bool playerVisible = false;
     private bool searching = false;
@@ -14,44 +15,43 @@ public class Enemy : MonoBehaviour
     public float visionAngle = 40f;
     public float visionRange = 10f;
     public float rotationSpeed = 120f;
-    public DangerSms dangerSms; 
-    public Transform[] points;
+    public float wanderRadius = 15f;
+    public float newDestinationInterval = 5f;
 
+    private float timer = 0f;
     private float rotateAmount = 0f;
-    private int currentPointIndex = 0;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        startPosition = transform.position;
 
-        if (points.Length > 0)
-        {
-            agent.SetDestination(points[currentPointIndex].position);
-        }
-        else
-        {
-            agent.isStopped = true;
-        }
+        SetNewRandomDestination();
     }
 
     void Update()
     {
-        if (points.Length == 0 || player == null) return;
+        if (player == null) return;
 
         Vector3 directionToPlayer = player.position - transform.position;
         float distanceToPlayer = directionToPlayer.magnitude;
         float angle = Vector3.Angle(transform.forward, directionToPlayer.normalized);
 
+        // Player ko‘rinishida
         if (distanceToPlayer <= visionRange && angle < visionAngle / 2f && CanSeePlayer())
         {
+            if (!playerVisible)
+            {
+                agent.SetDestination(player.position);
+
+                // 👇 Faqat bir marta ishga tushadi — ko‘rgan zahoti
+                dangerSms?.StartWarning();
+            }
+
             playerVisible = true;
             lastSeenPosition = player.position;
             searching = false;
-            agent.SetDestination(player.position);
-            dangerSms.StartWarning();
         }
         else if (playerVisible)
         {
@@ -69,15 +69,14 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            float distanceToCurrentPoint = Vector3.Distance(transform.position, points[currentPointIndex].position);
-            if (distanceToCurrentPoint < 1f)
+            timer += Time.deltaTime;
+            if (timer >= newDestinationInterval || agent.remainingDistance < 1f)
             {
-                currentPointIndex = (currentPointIndex + 1) % points.Length;
-                agent.SetDestination(points[currentPointIndex].position);
+                SetNewRandomDestination();
+                timer = 0f;
             }
         }
 
-        // Animatsiya: yurayotganida Walk true, to‘xtaganida yoki aylanayotganida false
         bool isMoving = agent.velocity.magnitude > 0.1f && !searching;
         animator.SetBool("Walk", isMoving);
     }
@@ -100,24 +99,44 @@ public class Enemy : MonoBehaviour
         transform.Rotate(Vector3.up, step);
         rotateAmount += step;
 
-        animator.SetBool("Walk", false); // Aylanayotganida yurmasin
+        animator.SetBool("Walk", false);
 
         if (rotateAmount >= 360f)
         {
             rotateAmount = 0f;
             searching = false;
-            currentPointIndex = (currentPointIndex + 1) % points.Length;
-            agent.SetDestination(points[currentPointIndex].position);
+            SetNewRandomDestination();
         }
+    }
+
+    void SetNewRandomDestination()
+    {
+        Vector3 randomPos = RandomNavMeshLocation(transform.position, wanderRadius);
+        agent.SetDestination(randomPos);
+    }
+
+    Vector3 RandomNavMeshLocation(Vector3 origin, float radius)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Vector3 randomDirection = Random.insideUnitSphere * radius;
+            randomDirection += origin;
+
+            if (NavMesh.SamplePosition(randomDirection, out NavMeshHit hit, 1f, NavMesh.AllAreas))
+            {
+                return hit.position;
+            }
+        }
+        return origin;
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Vector3 leftBoundary = Quaternion.Euler(0, -visionAngle / 2f, 0) * transform.forward;
-        Vector3 rightBoundary = Quaternion.Euler(0, visionAngle / 2f, 0) * transform.forward;
+        Vector3 left = Quaternion.Euler(0, -visionAngle / 2f, 0) * transform.forward;
+        Vector3 right = Quaternion.Euler(0, visionAngle / 2f, 0) * transform.forward;
 
-        Gizmos.DrawRay(transform.position, leftBoundary * visionRange);
-        Gizmos.DrawRay(transform.position, rightBoundary * visionRange);
+        Gizmos.DrawRay(transform.position, left * visionRange);
+        Gizmos.DrawRay(transform.position, right * visionRange);
     }
 }

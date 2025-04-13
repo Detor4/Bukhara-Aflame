@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 4f;
-    public float sneakSpeed = 2f;
     [SerializeField] private Animator animator;
 
 
@@ -14,19 +13,18 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>(); // Animator komponentini olamiz
     }
 
     void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
         Vector3 input = new Vector3(h, 0, v);
-        input = Vector3.ClampMagnitude(input, 1f);
+        input = Vector3.ClampMagnitude(input, 1); // Harakat yo'nalishini cheklash
 
-        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sneakSpeed : walkSpeed;
-        moveDirection = input * currentSpeed;
+        
+        moveDirection = input * walkSpeed;
 
         controller.SimpleMove(moveDirection);
         RotateTowardsMovement(input);
