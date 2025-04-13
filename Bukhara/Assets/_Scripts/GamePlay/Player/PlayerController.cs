@@ -5,12 +5,16 @@ public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 4f;
     [SerializeField] private Animator animator;
-    [SerializeField] private AudioSource footstepAudioSource;
-
+    [SerializeField] private AudioSource leftFootAudio;
+    [SerializeField] private AudioSource rightFootAudio;
+    [SerializeField] private float footstepInterval = 0.4f;
 
     private CharacterController controller;
     private Vector3 moveDirection;
-    
+
+    private float footstepTimer = 0f;
+    private bool leftStepNext = true;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -21,30 +25,34 @@ public class PlayerController : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        Vector3 input = new Vector3(h, 0, v);
-        input = Vector3.ClampMagnitude(input, 1); // Harakat yo'nalishini cheklash
-
-        
+        Vector3 input = new Vector3(h, 0, v).normalized;
         moveDirection = input * walkSpeed;
 
         controller.SimpleMove(moveDirection);
         RotateTowardsMovement(input);
 
-        // Animator: yurayotganini aniqlash
         bool isWalking = input.magnitude > 0.1f;
         animator.SetBool("Walk", isWalking);
-        
+
         if (isWalking)
         {
-            if (!footstepAudioSource.isPlaying)
-                footstepAudioSource.Play();
+            footstepTimer += Time.deltaTime;
+            if (footstepTimer >= footstepInterval)
+            {
+                footstepTimer = 0f;
+
+                if (leftStepNext)
+                    leftFootAudio.Play();
+                else
+                    rightFootAudio.Play();
+
+                leftStepNext = !leftStepNext;
+            }
         }
         else
         {
-            if (footstepAudioSource.isPlaying)
-                footstepAudioSource.Stop();
+            footstepTimer = footstepInterval; // reset timer
         }
-            
     }
 
     void RotateTowardsMovement(Vector3 direction)
