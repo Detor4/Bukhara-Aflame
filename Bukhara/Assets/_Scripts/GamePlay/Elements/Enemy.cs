@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     private bool playerVisible = false;
     private bool searching = false;
 
-    public float visionAngle = 40f;
+    public float visionAngle = 60f;
     public float visionRange = 10f;
     public float rotationSpeed = 120f;
     public float wanderRadius = 15f;
