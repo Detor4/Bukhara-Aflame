@@ -10,6 +10,9 @@ namespace _Scripts.GamePlay.Player
         [SerializeField] private Animator animator;
         [SerializeField] private GameObject gameOverPanel;
         [SerializeField] private MonoBehaviour playerControllerScript;
+        [SerializeField] private AudioSource dieAudio;
+        [SerializeField] private AudioSource gameOverAudio;
+        
 
         private bool isDead = false;
 
@@ -31,6 +34,7 @@ namespace _Scripts.GamePlay.Player
                     animator.SetBool("Die", true);
                     gameObject.tag = "PlayerMask"; // PlayerMask ga o‘zgartirish
                     gameObject.GetComponent<Collider>().enabled = false;
+                    dieAudio.Play();
                 }
 
 
@@ -49,6 +53,7 @@ namespace _Scripts.GamePlay.Player
 
             if(gameOverPanel != null)
                 gameOverPanel.SetActive(true);
+            gameOverAudio.Play();
         }
     }
 }

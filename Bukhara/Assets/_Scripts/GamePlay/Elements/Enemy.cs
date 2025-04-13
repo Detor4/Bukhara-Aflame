@@ -7,10 +7,14 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     [SerializeField] DangerSms dangerSms; // 👈 DangerSms skriptiga murojaat
+    [SerializeField] private AudioSource heyAudioSource;
 
     private Vector3 lastSeenPosition;
     private bool playerVisible = false;
     private bool searching = false;
+
+    // Yangi o'zgaruvchi - audio faqat bir marta o'ynashini ta'minlash uchun
+    private bool hasPlayedHey = false;
 
     public float visionAngle = 60f;
     public float visionRange = 10f;
@@ -47,6 +51,12 @@ public class Enemy : MonoBehaviour
 
                 // 👇 Faqat bir marta ishga tushadi — ko‘rgan zahoti
                 dangerSms?.StartWarning();
+
+                if (!hasPlayedHey) // Hey audio faqat bir marta chaqiriladi
+                {
+                    heyAudioSource?.Play();
+                    hasPlayedHey = true; // Audio o'ynaganini belgilaymiz
+                }
             }
 
             playerVisible = true;
@@ -58,6 +68,7 @@ public class Enemy : MonoBehaviour
             playerVisible = false;
             searching = true;
             agent.SetDestination(lastSeenPosition);
+            hasPlayedHey = false; // Agar o'yinchi ko'rinmasa, audio qayta o'ynashga tayyor bo'ladi
         }
         else if (searching)
         {
