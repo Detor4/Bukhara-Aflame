@@ -9,7 +9,7 @@ public class MonoManager : MonoBehaviour
     public int MonoValue = 0;         // Hozirgi to‘plangan qiymat
     public int AllMonoValue = 2;     // Maksimal qiymat
     [SerializeField] private Image monoProgressBar; // Image - Fill Mode bo'lishi kerak
-
+    [SerializeField] private GameObject DoorModel;
     void Awake()
     {
         if (Instance == null)
@@ -41,7 +41,7 @@ public class MonoManager : MonoBehaviour
     {
         if (MonoValue == AllMonoValue)
         {
-            Debug.Log("All Mono Collected!");
+            DoorModel.SetActive(false);
         }
     }
 }
