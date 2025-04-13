@@ -1,16 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MonoManager : MonoBehaviour
 {
     public static MonoManager Instance;
 
-    public int MonoValue = 0;
-    public int AllMonoValue;
-    [SerializeField] private TMP_Text monoValueText;
+    public int MonoValue = 0;         // Hozirgi to‘plangan qiymat
+    public int AllMonoValue = 2;     // Maksimal qiymat
+    [SerializeField] private Image monoProgressBar; // Image - Fill Mode bo'lishi kerak
 
     void Awake()
     {
@@ -22,22 +20,28 @@ public class MonoManager : MonoBehaviour
 
     private void Start()
     {
-        monoValueText.text = "Books" + AllMonoValue;
+        UpdateProgressBar();
     }
 
     public void AddMono()
     {
         MonoValue++;
-        AllMonoValue--;
-        monoValueText.text = "Books" + AllMonoValue;
+        if (MonoValue > AllMonoValue) MonoValue = AllMonoValue;
+
+        UpdateProgressBar();
         CheckMono();
+    }
+
+    private void UpdateProgressBar()
+    {
+        monoProgressBar.fillAmount = (float)MonoValue / AllMonoValue;
     }
 
     private void CheckMono()
     {
-        if(MonoValue == AllMonoValue)
+        if (MonoValue == AllMonoValue)
         {
-            Debug.Log("Mono value is 2");
+            Debug.Log("All Mono Collected!");
         }
     }
 }
