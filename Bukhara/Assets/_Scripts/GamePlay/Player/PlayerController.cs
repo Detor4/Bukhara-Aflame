@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 4f;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource footstepAudioSource;
 
 
     private CharacterController controller;
@@ -32,6 +33,18 @@ public class PlayerController : MonoBehaviour
         // Animator: yurayotganini aniqlash
         bool isWalking = input.magnitude > 0.1f;
         animator.SetBool("Walk", isWalking);
+        
+        if (isWalking)
+        {
+            if (!footstepAudioSource.isPlaying)
+                footstepAudioSource.Play();
+        }
+        else
+        {
+            if (footstepAudioSource.isPlaying)
+                footstepAudioSource.Stop();
+        }
+            
     }
 
     void RotateTowardsMovement(Vector3 direction)

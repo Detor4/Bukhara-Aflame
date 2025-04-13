@@ -29,7 +29,8 @@ namespace _Scripts.GamePlay.Player
                 if(animator != null)
                 {
                     animator.SetBool("Die", true);
-                    Debug.Log("Enemy collided!");
+                    gameObject.tag = "PlayerMask"; // PlayerMask ga o‘zgartirish
+                    gameObject.GetComponent<Collider>().enabled = false;
                 }
 
 
