@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
@@ -35,13 +36,10 @@ public class Finish : MonoBehaviour
             winAudio.Play();
 
         // 2 soniya kutish
-        await UniTask.Delay(TimeSpan.FromSeconds(2));
+        await UniTask.Delay(TimeSpan.FromSeconds(3));
 
-        // Panelni faollashtirib Dotween orqali chiqish animatsiyasi beramiz
-        if (winPanel != null)
-        {
-            winPanel.SetActive(true);
-            winPanel.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
-        }
+        SceneManager.LoadScene("End");
+        
+        
     }
 }

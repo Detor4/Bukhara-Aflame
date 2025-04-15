@@ -10,6 +10,7 @@ public class MonoManager : MonoBehaviour
     public int AllMonoValue = 2;     // Maksimal qiymat
     [SerializeField] private Image monoProgressBar; // Image - Fill Mode bo'lishi kerak
     [SerializeField] private GameObject DoorModel;
+    [SerializeField] private GameObject Arrow;
     void Awake()
     {
         if (Instance == null)
@@ -42,6 +43,7 @@ public class MonoManager : MonoBehaviour
         if (MonoValue == AllMonoValue)
         {
             DoorModel.SetActive(false);
+            Arrow.SetActive(true);
         }
     }
 }
