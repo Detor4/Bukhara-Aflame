@@ -25,6 +25,17 @@ public class TutorialManager : MonoBehaviour
 
     async void Start()
     {
+        // Boshlanishida barcha rasmlar va matnlarni o‘chirib qo‘yamiz
+        foreach (var img in images)
+        {
+            img.gameObject.SetActive(false);
+        }
+
+        foreach (var txt in imageTexts)
+        {
+            txt.gameObject.SetActive(false);
+        }
+
         await PlayIntroSequence();
     }
 
@@ -40,7 +51,7 @@ public class TutorialManager : MonoBehaviour
         mainText.DOFade(0, 1f);
         await UniTask.Delay(1000);
 
-        // Image + text ketma-ket 5 soniyadan
+        // Image + text ketma-ket 5 soniyadan, keyin fade out
         for (int i = 0; i < images.Length; i++)
         {
             if (isSkipped) return;
@@ -54,7 +65,16 @@ public class TutorialManager : MonoBehaviour
             images[i].DOFade(1, 1f);
             imageTexts[i].DOFade(1, 1f);
 
-            await UniTask.Delay(5000);
+            await UniTask.Delay(5000); // 5 soniya ko‘rsatiladi
+
+            // Fade out qilish
+            images[i].DOFade(0, 1f);
+            imageTexts[i].DOFade(0, 1f);
+
+            await UniTask.Delay(1000); // fade out tugashini kutish
+
+            images[i].gameObject.SetActive(false);
+            imageTexts[i].gameObject.SetActive(false);
         }
 
         if (!isSkipped)
