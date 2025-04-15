@@ -161,9 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0421\u043E\u0431\u0440\u0430\u0432 \u0440\u0443\u043A\u043E\u043F\u0438\u0441\u0438,
-    \u043F\u043E\u043A\u0438\u043D\u044C \u0433\u043E\u0440\u043E\u0434 \u0432\u0434\u043E\u043B\u044C
-    \u0433\u043B\u0430\u0432\u043D\u044B\u0445 \u0432\u043E\u0440\u043E\u0442"
+  m_text: After collecting the manuscripts, leave the city through the main gate.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -343,12 +341,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55.9
+  m_fontSize: 30
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 30
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -379,7 +377,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -338.11475, y: -76.7594, z: 0, w: 0}
+  m_margin: {x: -214.69934, y: -51.173294, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -566,8 +564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0421\u043E\u0431\u0438\u0440\u0430\u0439 \u0434\u0440\u0435\u0432\u043D\u0438\u0435
-    \u0440\u0443\u043A\u043E\u043F\u0438\u0441\u0438"
+  m_text: Collect ancient manuscripts
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -868,7 +865,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0411\u0435\u0433\u0438 \u043E\u0442 \u0432\u0440\u0430\u0433\u043E\u0432"
+  m_text: Run away from enemies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1641,27 +1638,21 @@ MonoBehaviour:
   mainText: {fileID: 2033175783}
   audioSource: {fileID: 1496054409}
   narrationClip: {fileID: 8300000, guid: e8ae923d24d467249b3ae0ed84345d7b, type: 3}
-  tutorialMessage: "\u0412\u043E \u0438\u043C\u044F \u0410\u043B\u043B\u0430\u0445\u0430
-    \u041C\u0438\u043B\u043E\u0441\u0442\u0438\u0432\u043E\u0433\u043E, \u041C\u0438\u043B\u043E\u0441\u0435\u0440\u0434\u043D\u043E\u0433\u043E\r\n\r\n\u041E\u0442
-    \u0425\u043E\u0440\u0435\u0437\u043C\u0448\u0430\u0445\u0430 \u0410\u043B\u0430\u0443\u0434\u0434\u0438\u043D\u0430
-    \u041C\u0443\u0445\u0430\u043C\u043C\u0430\u0434\u0430 \u2014 \u0410\u043B\u0438\u044E
-    \u0428\u0430\u043C\u0441\u0438\u0434\u0434\u0438\u043D\u0443.\r\n\r\n\u0423\u0432\u044B,
-    \u043C\u044B \u043F\u043E\u0442\u0435\u0440\u044F\u043B\u0438 \u0432\u0435\u043B\u0438\u043A\u0443\u044E
-    \u0411\u0443\u0445\u0430\u0440\u0443. \u0422\u0432\u043E\u044F \u0437\u0430\u0434\u0430\u0447\u0430:
-    \u0442\u0430\u0439\u043D\u043E \u043F\u0440\u043E\u043D\u0438\u043A\u043D\u0443\u0442\u044C
-    \u0432 \u0411\u0443\u0445\u0430\u0440\u0443 \u0438 \u0432\u044B\u0432\u0435\u0437\u0442\u0438
-    \u043E\u0442\u0442\u0443\u0434\u0430 \u0441\u0430\u043C\u044B\u0435 \u0432\u0430\u0436\u043D\u044B\u0435
-    \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B, \u0440\u0443\u043A\u043E\u043F\u0438\u0441\u0438
-    \u0438 \u0441\u0431\u043E\u0440\u043D\u0438\u043A\u0438 \u0445\u0430\u0434\u0438\u0441\u043E\u0432,
-    \u043D\u0430\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u044D\u0442\u043E \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E.
-    \u041F\u0443\u0441\u0442\u044C \u043F\u043E\u043C\u043E\u0449\u044C, \u043C\u043E\u0433\u0443\u0449\u0435\u0441\u0442\u0432\u043E
-    \u0438 \u0437\u0430\u0449\u0438\u0442\u0430 \u0410\u043B\u043B\u0430\u0445\u0430
-    \u0431\u0443\u0434\u0443\u0442 \u0441 \u0442\u043E\u0431\u043E\u0439. \u041F\u043E\u0441\u043B\u0435
-    \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F \u0437\u0430\u0434\u0430\u043D\u0438\u044F
-    \u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0439\u0441\u044F \u0432 \u0425\u043E\u0440\u0430\u0441\u0430\u043D
-    \u0447\u0435\u0440\u0435\u0437 \u0421\u0435\u0440\u0430\u0445\u0441. \u0422\u0430\u043C
-    \u0442\u0435\u0431\u044F \u0431\u0443\u0434\u0443\u0442 \u0436\u0434\u0430\u0442\u044C
-    \u043C\u043E\u0438 \u043F\u043E\u0441\u043B\u0430\u043D\u043D\u0438\u043A\u0438."
+  tutorialMessage: 'In the name of Allah, the Most Gracious, the Most Merciful
+
+    
+
+    From
+    Khwarazmshah Alauddin Muhammad to Aliy Shamsiddin.
+
+    
+
+    Alas, we have
+    lost the great Bukhara. Your mission: infiltrate Bukhara secretly and retrieve
+    the most essential documents, manuscripts, and collections of hadiths as much
+    as possible. May Allah''s help, power, and protection be with you. Upon completion
+    of the task, return to Khorasan through Sarakhs. My envoys will be waiting for
+    you there.'
   images:
   - {fileID: 1111366717}
   - {fileID: 1225969855}
@@ -1773,7 +1764,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: de2902ee2aa764a439b2172e503bfd12, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1895,8 +1886,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 Q, \u0447\u0442\u043E\u0431\u044B
-    \u0438\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043A\u0430\u043C\u0435\u0440\u0443."
+  m_text: Press Q to change the camera.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2030,27 +2020,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u043E \u0438\u043C\u044F \u0410\u043B\u043B\u0430\u0445\u0430 \u041C\u0438\u043B\u043E\u0441\u0442\u0438\u0432\u043E\u0433\u043E,
-    \u041C\u0438\u043B\u043E\u0441\u0435\u0440\u0434\u043D\u043E\u0433\u043E\r\n\r\n\u041E\u0442
-    \u0425\u043E\u0440\u0435\u0437\u043C\u0448\u0430\u0445\u0430 \u0410\u043B\u0430\u0443\u0434\u0434\u0438\u043D\u0430
-    \u041C\u0443\u0445\u0430\u043C\u043C\u0430\u0434\u0430 \u2014 \u0410\u043B\u0438\u044E
-    \u0428\u0430\u043C\u0441\u0438\u0434\u0434\u0438\u043D\u0443.\r\n\r\n\u0423\u0432\u044B,
-    \u043C\u044B \u043F\u043E\u0442\u0435\u0440\u044F\u043B\u0438 \u0432\u0435\u043B\u0438\u043A\u0443\u044E
-    \u0411\u0443\u0445\u0430\u0440\u0443. \u0422\u0432\u043E\u044F \u0437\u0430\u0434\u0430\u0447\u0430:
-    \u0442\u0430\u0439\u043D\u043E \u043F\u0440\u043E\u043D\u0438\u043A\u043D\u0443\u0442\u044C
-    \u0432 \u0411\u0443\u0445\u0430\u0440\u0443 \u0438 \u0432\u044B\u0432\u0435\u0437\u0442\u0438
-    \u043E\u0442\u0442\u0443\u0434\u0430 \u0441\u0430\u043C\u044B\u0435 \u0432\u0430\u0436\u043D\u044B\u0435
-    \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B, \u0440\u0443\u043A\u043E\u043F\u0438\u0441\u0438
-    \u0438 \u0441\u0431\u043E\u0440\u043D\u0438\u043A\u0438 \u0445\u0430\u0434\u0438\u0441\u043E\u0432,
-    \u043D\u0430\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u044D\u0442\u043E \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E.
-    \u041F\u0443\u0441\u0442\u044C \u043F\u043E\u043C\u043E\u0449\u044C, \u043C\u043E\u0433\u0443\u0449\u0435\u0441\u0442\u0432\u043E
-    \u0438 \u0437\u0430\u0449\u0438\u0442\u0430 \u0410\u043B\u043B\u0430\u0445\u0430
-    \u0431\u0443\u0434\u0443\u0442 \u0441 \u0442\u043E\u0431\u043E\u0439. \u041F\u043E\u0441\u043B\u0435
-    \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F \u0437\u0430\u0434\u0430\u043D\u0438\u044F
-    \u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0439\u0441\u044F \u0432 \u0425\u043E\u0440\u0430\u0441\u0430\u043D
-    \u0447\u0435\u0440\u0435\u0437 \u0421\u0435\u0440\u0430\u0445\u0441. \u0422\u0430\u043C
-    \u0442\u0435\u0431\u044F \u0431\u0443\u0434\u0443\u0442 \u0436\u0434\u0430\u0442\u044C
-    \u043C\u043E\u0438 \u043F\u043E\u0441\u043B\u0430\u043D\u043D\u0438\u043A\u0438."
+  m_text: 'In the name of Allah, the Most Gracious, the Most Merciful
+
+    
+
+    From
+    Khwarazmshah Alauddin Muhammad to Aliy Shamsiddin.
+
+    
+
+    Alas, we have
+    lost the great Bukhara. Your mission: infiltrate Bukhara secretly and retrieve
+    the most essential documents, manuscripts, and collections of hadiths as much
+    as possible. May Allah''s help, power, and protection be with you. Upon completion
+    of the task, return to Khorasan through Sarakhs. My envoys will be waiting for
+    you there.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2077,15 +2061,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50.86
+  m_fontSizeBase: 50.86
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2211,8 +2195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u044F\u0447\u044C\u0441\u044F \u043E\u0442 \u0432\u0440\u0430\u0433\u043E\u0432
-    \u0432 \u043A\u0443\u0441\u0442\u0430\u0445"
+  m_text: Hide from enemies in the bushes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

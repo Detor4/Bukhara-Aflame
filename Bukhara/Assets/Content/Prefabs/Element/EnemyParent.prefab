@@ -77,6 +77,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BodyTest5@Walking
       objectReference: {fileID: 0}
+    - target: {fileID: 5052712237751522855, guid: cdbd9cb1dd7a0094e8e28a3bf58cb1ca,
+        type: 3}
+      propertyPath: visionAngle
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052712237751522855, guid: cdbd9cb1dd7a0094e8e28a3bf58cb1ca,
+        type: 3}
+      propertyPath: visionRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8975598053881955741, guid: cdbd9cb1dd7a0094e8e28a3bf58cb1ca,
         type: 3}
       propertyPath: m_LocalPosition.x
