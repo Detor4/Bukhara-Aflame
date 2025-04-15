@@ -90,7 +90,7 @@ public class TutorialManager : MonoBehaviour
         {
             if (isSkipped) return;
             mainText.text += c;
-            await UniTask.Delay(50);
+            await UniTask.Delay(60);
         }
     }
 
