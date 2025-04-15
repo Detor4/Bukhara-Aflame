@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMonoTrigger : MonoBehaviour
 {
+    [SerializeField] private AudioSource monoAudioSource;
     private void OnTriggerEnter(Collider other)
     {
         Mono monoScript = other.GetComponent<Mono>();
@@ -11,6 +12,7 @@ public class PlayerMonoTrigger : MonoBehaviour
         {
             MonoManager.Instance.AddMono();
             monoScript.Action();
+            monoAudioSource.Play();
         }
     }
 }
