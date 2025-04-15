@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17789108, g: 0.22272593, b: 0.30486196, a: 1}
+  m_IndirectSpecularColor: {r: 0.17789136, g: 0.22272584, b: 0.30486214, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4204,6 +4204,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonoXarita (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3702324829292766971, guid: c5e897ff696e45d4e8f819b79a9e00b9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -7506264231671978109, guid: f3fff0e073683df478ebaf4d91858e8a,
+        type: 3}
     - target: {fileID: 8829539488735561171, guid: c5e897ff696e45d4e8f819b79a9e00b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5525,6 +5531,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonoXarita (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3702324829292766971, guid: c5e897ff696e45d4e8f819b79a9e00b9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -7506264231671978109, guid: f3fff0e073683df478ebaf4d91858e8a,
+        type: 3}
     - target: {fileID: 8829539488735561171, guid: c5e897ff696e45d4e8f819b79a9e00b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19236,6 +19248,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonoXarita (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3702324829292766971, guid: c5e897ff696e45d4e8f819b79a9e00b9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -7506264231671978109, guid: f3fff0e073683df478ebaf4d91858e8a,
+        type: 3}
     - target: {fileID: 8829539488735561171, guid: c5e897ff696e45d4e8f819b79a9e00b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21998,6 +22016,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonoXarita (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3702324829292766971, guid: c5e897ff696e45d4e8f819b79a9e00b9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -7506264231671978109, guid: f3fff0e073683df478ebaf4d91858e8a,
+        type: 3}
     - target: {fileID: 8829539488735561171, guid: c5e897ff696e45d4e8f819b79a9e00b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22218,6 +22242,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonoXarita
       objectReference: {fileID: 0}
+    - target: {fileID: 3702324829292766971, guid: c5e897ff696e45d4e8f819b79a9e00b9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -7506264231671978109, guid: f3fff0e073683df478ebaf4d91858e8a,
+        type: 3}
     - target: {fileID: 8829539488735561171, guid: c5e897ff696e45d4e8f819b79a9e00b9,
         type: 3}
       propertyPath: m_LocalPosition.x
