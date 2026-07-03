@@ -59,16 +59,7 @@ Your objective is simple:
 
 ---
 
-## 📷 Screenshots
 
-> Add your gameplay screenshots here.
-
-```
-screenshots/
-├── gameplay_1.png
-├── gameplay_2.png
-└── gameplay_3.png
-```
 
 ---
 
